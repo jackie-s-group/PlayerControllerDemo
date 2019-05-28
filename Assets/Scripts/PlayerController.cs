@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
+  // [TODO] [IMPORTANT] Ground check
 
+  // [TODO] Member too chaotic
   private Rigidbody2D player;
   private SpriteRenderer playerSprite;
+  private Transform groundDetector;
 
   private bool jumpRequest;
   private bool isGrounded;
   private float moveDirection;
-
   private float originXPosition;
+  private Vector3 smoothVelocity = Vector3.zero;
 
   // Horizontal Move Parameters
   [Range(1f, 10f)] public float moveVelocity = 3.0f;
   [Range(1f, 10f)] public float returnVelocity = 1.0f;
-  [Range(1f, 10f)] public float moveAeraRadius = 2.0f;
+  [Range(0f, 1f)] public float smoothTime = .05f;
+  [Range(1f, 10f)] public float leftBoundary = 2.0f;
+  [Range(1f, 10f)] public float rightBoundary = 2.0f;
   public float returnThreshold = 0.02f;
 
   // Jump Parameters
@@ -27,12 +32,32 @@ public class PlayerController : MonoBehaviour {
 
   private void Start() {
     player = GetComponent<Rigidbody2D>();
-    playerSprite = transform.Find("PlayerSprite").GetComponent<SpriteRenderer>();
+    playerSprite = GetComponent<SpriteRenderer>();
     originXPosition = player.position.x;
   }
 
+  private void Flip() {
+    if (!playerSprite.flipX) {
+      playerSprite.flipX = true;
+    }
+  }
+
+  private void Unflip() {
+    if (playerSprite.flipX) {
+      playerSprite.flipX = false;
+    }
+  }
+
   private void Update() {
+    // Get horizontal input
     moveDirection = Input.GetAxisRaw("Horizontal");
+    // Flip based on user input
+    if (moveDirection < 0) {
+      Flip();
+    } else {
+      Unflip();
+    }
+
     if (Input.GetButtonDown("Jump")) {
       jumpRequest = true;
     }
@@ -43,24 +68,25 @@ public class PlayerController : MonoBehaviour {
     JumpUpdate();
   }
 
-  private void filp() {
-    playerSprite.flipX = true;
-  }
-
-  private void unflip() {
-    playerSprite.flipX = false;
+  private void SmoothMove(float velocity) {
+    Vector3 targetVelocity = new Vector2(velocity, player.velocity.y);
+    player.velocity = Vector3.SmoothDamp(player.velocity, targetVelocity, ref smoothVelocity, smoothTime);
   }
 
   private void MoveUpdate() {
+    // [TODO ]Need optimization
+    // 1 Press inverse key in boundary will stop moving
+    // 2 Rest time before return?
+    // 3 Sometims shaking in origin
     if (moveDirection != 0) {
-      if (Mathf.Abs(originXPosition - player.position.x) < moveAeraRadius) {
-        player.velocity = new Vector2(moveDirection * moveVelocity, player.velocity.y);
+      if ((originXPosition - player.position.x < leftBoundary) && (player.position.x - originXPosition < rightBoundary)) {
+        SmoothMove(moveDirection * moveVelocity);
       } else {
         player.velocity = new Vector2(0f, player.velocity.y);
       }
     } else {
       if (Mathf.Abs(originXPosition - player.position.x) > returnThreshold) {
-        player.velocity = new Vector2(Mathf.Sign(originXPosition - player.position.x) * returnVelocity, player.velocity.y);
+        SmoothMove(Mathf.Sign(originXPosition - player.position.x) * returnVelocity);
       } else {
         player.velocity = new Vector2(0f, player.velocity.y);
       }
@@ -84,16 +110,4 @@ public class PlayerController : MonoBehaviour {
       player.gravityScale = baseGravity;
     }
   }
-
-  //private void OnCollisionStay2D(Collision2D collision) {
-  //  if (collision.gameObject.tag == "Ground") {
-  //    isGrounded = true;
-  //  }
-  //}
-
-  //private void OnCollisionExit2D(Collision2D collision) {
-  //  if (collision.gameObject.tag == "Ground") {
-  //    isGrounded = false;
-  //  }
-  //}
 }
