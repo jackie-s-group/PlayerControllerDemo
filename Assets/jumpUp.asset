@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0543fe805424df99fe08ce744cbe49, type: 3}
+  m_Name: jumpUp
+  m_EditorClassIdentifier: 
+  m_PoseEntries:
+  - path: 
+    localPosition: {x: -1.3487346, y: -0.16042203, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.7832704, w: 0.62168115}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: HDL_1
+    localPosition: {x: 0.13537507, y: 0.20835492, z: 0}
+    localRotation: {x: 0, y: -0, z: 0.030999722, w: -0.9995194}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: HDL_1/HDL1_1
+    localPosition: {x: 0.40000004, y: -0.000000014901161, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.26570755, w: 0.96405375}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: HDL_1/HDL1_2
+    localPosition: {x: 0.8475595, y: -0.17204362, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.020769602, w: 0.9997843}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: HDR_1
+    localPosition: {x: 0.028854541, y: -0.264037, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.18180652, w: 0.98333436}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: HDR_1/HDR1_1
+    localPosition: {x: 0.42712468, y: 0, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.25614598, w: 0.96663815}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: HDR_1/HDR1_2
+    localPosition: {x: 0.89045244, y: -0.14253318, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.11028083, w: 0.9939005}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: neck
+    localPosition: {x: 0.20517464, y: 0.0041680783, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.9995758, w: 0.029125504}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: neck/face1_1
+    localPosition: {x: 0.40000036, y: 0, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.0135782715, w: 0.99990785}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: neck/face1_1/HL1
+    localPosition: {x: 0.43308398, y: -0.5108835, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.980901, w: -0.19450784}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: neck/face1_1/HL1/HL1_1
+    localPosition: {x: 0.30000037, y: 0, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.1475393, w: 0.9890562}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: neck/face1_1/HL1/HL1_1/HL1_2
+    localPosition: {x: 0.38486522, y: 0.010805049, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.13779029, w: 0.99046147}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: neck/face1_1/HR_1
+    localPosition: {x: 0.37449148, y: 0.5423033, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.9542845, w: -0.2988999}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: neck/face1_1/HR_1/HR1_1
+    localPosition: {x: 0.29999954, y: 0, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.4928488, w: 0.87011504}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: neck/face1_1/HR_1/HR1_1/HR1_2
+    localPosition: {x: 0.65480095, y: 0.09361464, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.2903567, w: 0.9569185}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: neck/face1_1/HF
+    localPosition: {x: 1.0147455, y: -0.029057339, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.9922606, w: 0.12417303}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: body1_2
+    localPosition: {x: 0.50001055, y: -0.000000029802322, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.16911727, w: 0.98559594}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: body1_2/LL1
+    localPosition: {x: 0.53137183, y: 0.08358312, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.37193495, w: 0.92825884}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: body1_2/LL1/LL1_1
+    localPosition: {x: 0.5158789, y: -0.000000059604645, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.51378834, w: 0.85791695}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: body1_2/LL1/LL1_1/LL1_1_1
+    localPosition: {x: 0.58104527, y: -0.0000000083182385, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.02483344, w: 0.9996916}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: body1_2/LR1
+    localPosition: {x: 0.56387615, y: -0.10136737, z: 0}
+    localRotation: {x: 0, y: -0, z: 0.10594322, w: -0.9943722}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: body1_2/LR1/LR1_1
+    localPosition: {x: 0.5000011, y: -0.00000011920929, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.0010297069, w: 0.99999946}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: body1_2/LR1/LR1_1/LR1_1_1
+    localPosition: {x: 0.60000026, y: 0.00000017881393, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.10614263, w: 0.99435097}
+    localScale: {x: 1, y: 1, z: 1}
