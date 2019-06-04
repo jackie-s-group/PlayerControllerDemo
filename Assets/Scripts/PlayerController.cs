@@ -85,16 +85,19 @@ public class PlayerController : MonoBehaviour {
 
   private void MoveUpdate() {
     // [TODO] Need optimization
-    // 1 Press inverse key in boundary will stop moving ##
+    // [FIXED] 1 Press inverse key in boundary will stop moving 
     // 2 Rest time before return?
     // 3 Sometimes shaking in origin (rarely)
     if (moveDirection != 0) {
-      if ((originXPosition - playerRb.position.x < leftBoundary) && (playerRb.position.x - originXPosition < rightBoundary)) {
-        SmoothMove(moveDirection * moveVelocity);
+      if ((originXPosition - playerRb.position.x >= leftBoundary) && (moveDirection < 0)) {
+        playerRb.velocity = new Vector2(0f, playerRb.velocity.y); // Left boundary
+      } else if ((playerRb.position.x - originXPosition >= rightBoundary) && (moveDirection > 0)) {
+        playerRb.velocity = new Vector2(0f, playerRb.velocity.y); // Right boundary
       } else {
-        playerRb.velocity = new Vector2(0f, playerRb.velocity.y);
+        SmoothMove(moveDirection * moveVelocity);
       }
     } else {
+      // Return to origin
       if (Mathf.Abs(originXPosition - playerRb.position.x) > returnThreshold) {
         SmoothMove(Mathf.Sign(originXPosition - playerRb.position.x) * returnVelocity);
       } else {
